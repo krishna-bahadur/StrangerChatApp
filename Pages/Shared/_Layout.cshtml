@@ -7,45 +7,70 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/StrangerChatApp.styles.css" asp-append-version="true" />
+    <link href="~/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-2 p-0">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">StrangerChatApp</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index" title="Let's Chat'">
+                    <img src="~/assets/logo.png" width="50" />
+                    </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/terms">Terms & Conditions</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/guidelines">Community Guidelines</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/contact">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!--Agreement Popup-->
+    <div class="modal fade" id="ageAgreementModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="ageAgreementModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ageAgreementModalLabel">Terms & Age Verification</h5>
+                </div>
+                <div class="modal-body">
+                    <p>To proceed, please confirm that you are at least 18 years old and agree to our terms and conditions.</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="ageConfirm">
+                        <label class="form-check-label" for="ageConfirm">I confirm that I am 18 years or older and agree to the <a href="/terms">Terms & Conditions</a></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="agreeBtn" disabled>Agree</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - StrangerChatApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

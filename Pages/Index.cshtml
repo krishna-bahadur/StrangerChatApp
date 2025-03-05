@@ -4,7 +4,99 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!--Hero Section-->
+<section class="hero-section text-center">
+    <p class="fw-bold fs-6 mb-1">Welcome to Stranger Chat!</p>
+    <p>Chat with people nearby, make new connections, and enjoy exciting conversations.</p>
+</section>
+
+<section class="main-section">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="border rounded chat-section position-relative">
+                        <div class="chat-header border-bottom">
+                            <div class="row w-100 p-2">
+                                <div class="col-9 col-md-6">
+                                    <div id="anonymousUser-info">
+                                        <div class="d-flex align-items-center">
+                                            <div class="status-indicator-online" id="status-indicator-online" style="display: none"></div>
+                                            <div class="status-indicator-offline" id="status-indicator-offline"></div>
+                                            <div class="text-muted">Anonymous Stranger</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 text-end m-0 p-0">
+                                    <div style="display:none" id="actionButtons">
+                                        <button class="btn btn-sm border" id="nextBtn" title="Find Someone Else">
+                                            <i class="fas fa-forward text-success"></i>
+                                        </button>
+                                        <button class="btn btn-sm border" id="leaveBtn" title="End Chat">
+                                            <i class="fas fa-times text-danger"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-body px-2" id="chatBody">
+                            <div class="message-container my-1">
+                                <div class="text-center text-muted mt-2" id="clickHereToChat" style="font-size: 12px ">Click here to chat with Stranger <a href="" id="joinChat">Join chat</a> </div>
+                            </div>
+                        </div>
+                        <div class="chat-footer">
+                            <form id="messageForm" class="px-2 py-1 mb-2">
+                                <div class="input-group">
+                                    <input type="text" id="messageInput" class="form-control" placeholder="Type a message..." autocomplete="off">
+                                    <button class="btn btn-primary" id="sendButton" type="submit" disabled>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* <section>
+    <div class="row p-1">
+        <div class="col-1">User</div>
+        <div class="col-5">
+            <input type="text" id="userInput" />
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-1">Message</div>
+        <div class="col-5">
+            <input type="text" class="w-100" id="messageInput" />
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-6 text-end">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-6">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row p-1">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</section> *@
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
